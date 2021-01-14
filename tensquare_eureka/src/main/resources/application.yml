@@ -1,0 +1,17 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: tensquare-eureka
+eureka:
+  client:
+    #是否将自己注册到Eureka中，这里就是Eureka自己，不需要注册
+    register-with-eureka: false
+    #是否从Eureka中获取信息，这里也不需要
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
+ribbon:
+  ConnectTimeout: 5000 # 连接超时时间(ms)
+  ReadTimeout: 5000 # 通信超时时间(ms)
+  ribbon.eureka.enable: true
